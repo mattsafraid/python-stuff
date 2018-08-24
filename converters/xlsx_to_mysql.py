@@ -38,7 +38,6 @@ max_cols  = argv[2] if len(argv) > 3 else 0
 max_lines = argv[3] if len(argv) > 4 else 0
 
 insert_buffer_len = 199
-col_separator   = "|"
 db_name = beautify( xlsx_file.split('.')[0] )
 
 myconfig = {
@@ -47,6 +46,7 @@ myconfig = {
 ,   'host'      : '0.0.0.0'
 ,   'port'      : '3357'
 }
+
 ########## ENJOY ##########
 
 '''Main'''
@@ -86,7 +86,7 @@ try:
         header = xls_fix_header(ws[1])
         types = list()
         '''Comment the following line if you don't want to infer data types !!!'''
-        types  = xls_row_types_mysql(ws[2])
+        # types  = xls_row_types_mysql(ws[2])
         
         ## Create landing table. 
         print("""'CREATE TABLE': """, end='')
